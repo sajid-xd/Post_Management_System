@@ -1,0 +1,67 @@
+﻿@model mycourier.Models.Location
+
+@{
+    ViewData["Title"] = "Create Location";
+    Layout = "/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Create a New Location</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label">Location Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="Enter location name" />
+                    <span asp-validation-for="Name" class="text-danger small"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Fees" class="form-label">Location Fee</label>
+                    <input asp-for="Fees" class="form-control" placeholder="Enter fee" />
+                    <span asp-validation-for="Fees" class="text-danger small"></span>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-plus-circle"></i> Create Location
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h4 class="mb-3">Existing Locations</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Fees</th>
+                        <th style="width: 180px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.LocationsList as List<mycourier.Models.Location>)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Fees.ToString("C")</td>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+                                    <form asp-action="DeleteConfirmed" asp-route-id="@item.Id" method="post"
+                                          onsubmit="return confirm('Are you sure you want to delete this location?');">
+                                        <input type="hidden" name="id" value="@item.Id" />
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

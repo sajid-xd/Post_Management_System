@@ -1,0 +1,31 @@
+﻿@model mycourier.Models.User
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Delete User</h1>
+
+<h3>Are you sure you want to delete this user?</h3>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Full Name</dt>
+        <dd class="col-sm-10">@Model.FullName</dd>
+
+        <dt class="col-sm-2">Username</dt>
+        <dd class="col-sm-10">@Model.Username</dd>
+
+        <dt class="col-sm-2">Phone Number</dt>
+        <dd class="col-sm-10">@Model.PhoneNumber</dd>
+
+        <dt class="col-sm-2">User Type</dt>
+        <dd class="col-sm-10">@Model.UserType</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" asp-controller="CreateUsers" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

@@ -1,0 +1,41 @@
+﻿@model mycourier.Models.Weight
+
+@{
+    ViewData["Title"] = "Edit Weight";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Edit Weight</h2>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Update Weight Details</h5>
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Fees" class="form-label"></label>
+                            <input asp-for="Fees" class="form-control" />
+                            <span asp-validation-for="Fees" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

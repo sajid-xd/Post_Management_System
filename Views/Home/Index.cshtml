@@ -1,0 +1,630 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    var delivery = ViewBag.Delivery;
+}
+<div class="ftco-blocks-cover-1">
+    <div class="ftco-cover-1 overlay" style="background-image: url('images/hero1.jpg')">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">
+                        EXPERIENCE RELIABLE, HIGH-<br>
+                        QUALITY CARGO DELIVERY TAILORED<br>
+                        TO YOUR NEEDS.
+                    </h1>
+
+                    <p class="mb-5">Follow Your Delivery Journey &#x25BC;</p>
+                    <style>
+                        .hero-title {
+                            font-family: 'Josefin Sans', sans-serif;
+                            font-weight: 700; /* bold */
+                            text-transform: uppercase; /* optional: force all caps */
+                            font-size: 26px;
+                        }
+
+
+                    </style>
+                    <form asp-action="TrackDetails" method="get">
+                        <div class="form-group d-flex">
+                            <input type="text" class="form-control" name="id" placeholder="Enter your tracking number" required />
+                            <button type="submit" class="btn btn-primary text-white px-4">Track Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END .ftco-cover-1 -->
+    <div class="ftco-service-image-1 pb-5">
+        <div class="container">
+            <div class="owl-carousel owl-all">
+                <!-- Sea Freight -->
+                <div class="service text-center">
+                    <a href="#"><img src="images/hero1.jpg" alt="Sea Freight" class="img-fluid"></a>
+                    <div class="px-md-3">
+                        <h3><a href="#">Sea Freight</a></h3>
+                        <p>
+                            Reliable and cost-effective sea shipments for bulk parcels,
+                            ensuring safe delivery across domestic and international ports.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Air Freight -->
+                <div class="service text-center">
+                    <a href="#"><img src="images/hero1.jpg" alt="Air Freight" class="img-fluid"></a>
+                    <div class="px-md-3">
+                        <h3><a href="#">Air Freight</a></h3>
+                        <p>
+                            Fast and secure air cargo services for urgent parcels,
+                            with real-time tracking and priority handling.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Package Forwarding -->
+                <div class="service text-center">
+                    <a href="#"><img src="images/hero1.jpg" alt="Package Forwarding" class="img-fluid"></a>
+                    <div class="px-md-3">
+                        <h3><a href="#">Package Forwarding</a></h3>
+                        <p>
+                            Door-to-door package forwarding services,
+                            making sending and receiving parcels effortless and convenient.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="site-section bg-light" id="services-section">
+    <div class="container">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-md-7 text-center">
+                <div class="block-heading-1">
+                    <h2>What We Offer</h2>
+                    <p>Our Online Post Office Management System provides end-to-end digital solutions for postal services, making operations faster, more secure, and user-friendly.</p>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel owl-all">
+
+            <div class="block__35630">
+                <div class="icon mb-0">
+                    <span class="flaticon-ferry"></span>
+                </div>
+                <h3 class="mb-3">Sea Freight</h3>
+                <p>Manage and track overseas mail or parcels shipped by sea with real-time updates and automated documentation.</p>
+            </div>
+
+            <div class="block__35630">
+                <div class="icon mb-0">
+                    <span class="flaticon-airplane"></span>
+                </div>
+                <h3 class="mb-3">Air Freight</h3>
+                <p>Handle express and international air shipments seamlessly, ensuring quick delivery and status monitoring.</p>
+            </div>
+
+            <div class="block__35630">
+                <div class="icon mb-0">
+                    <span class="flaticon-box"></span>
+                </div>
+                <h3 class="mb-3">Package Forwarding</h3>
+                <p>Automate forwarding requests, schedule pickups, and track parcels for customers moving or traveling abroad.</p>
+            </div>
+
+            <div class="block__35630">
+                <div class="icon mb-0">
+                    <span class="flaticon-lorry"></span>
+                </div>
+                <h3 class="mb-3">Trucking</h3>
+                <p>Coordinate domestic road transport with integrated routing and live location updates for large consignments.</p>
+            </div>
+
+            <div class="block__35630">
+                <div class="icon mb-0">
+                    <span class="flaticon-warehouse"></span>
+                </div>
+                <h3 class="mb-3">Warehouse</h3>
+                <p>Maintain accurate inventory of incoming and outgoing parcels with automated storage and retrieval systems.</p>
+            </div>
+
+            <div class="block__35630">
+                <div class="icon mb-0">
+                    <span class="flaticon-add"></span>
+                </div>
+                <h3 class="mb-3">Delivery</h3>
+                <p>Provide doorstep delivery tracking, digital proof of delivery, and instant notifications for customers and staff.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="site-section" id="about-section">
+
+    <div class="container">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-md-7 text-center">
+                <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
+                    <h2>About Us</h2>
+                    <p>
+                        The Online Post Office Management System is a digital platform designed to modernize and simplify postal operations.
+                        Our mission is to provide fast, reliable, and user-friendly services that connect people and businesses worldwide.
+                        By integrating real-time tracking, automated workflows, and secure transactions, we ensure that every shipment and service is handled efficiently.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="site-section bg-light" id="about-section">
+    <div class="container">
+        <div class="row justify-content-center mb-4 block-img-video-1-wrap">
+            <div class="col-md-12 mb-5">
+                <figure class="block-img-video-1" data-aos="fade">
+                        <img src="images/hero1.jpg" alt="About Us Video" class="img-fluid">
+                    </a>
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6 col-md-6 mb-4 col-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="">
+                        <div class="block-counter-1">
+                            <span class="number"><span data-number="50">0</span>+</span>
+                            <span class="caption">Years of Experience</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-6 mb-4 col-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="block-counter-1">
+                            <span class="number"><span data-number="300">0</span>+</span>
+                            <span class="caption">Companies</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-6 mb-4 col-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="block-counter-1">
+                            <span class="number"><span data-number="108">0</span>+</span>
+                            <span class="caption">Covered Countries</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-6 mb-4 col-lg-0 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                        <div class="block-counter-1">
+                            <span class="number"><span data-number="1500">0</span>+</span>
+                            <span class="caption">Couriers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section" id="team-section">
+    <div class="container">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-md-7 text-center">
+                <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
+                    <h2>Our Staff</h2>
+                    <p>
+                        The team that keeps our Post Management Courier Service running smoothly.
+                        Skilled professionals manage operations, customer care, and logistics
+                        to ensure fast and secure deliveries nationwide.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="owl-carousel owl-all">
+            <div class="block-team-member-1 text-center rounded h-100">
+                <figure>
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Ahmed Khan" class="img-fluid rounded-circle">
+                </figure>
+                <h3 class="font-size-20 text-black">Ahmed Khan</h3>
+                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Operations Head</span>
+                <p class="mb-4">
+                    Oversees all courier operations across the country.
+                    Plans routes, manages delivery schedules, and coordinates teams.
+                    Focused on efficiency and on-time parcel handling.
+                </p>
+            </div>
+
+            <div class="block-team-member-1 text-center rounded h-100">
+                <figure>
+                    <img src="https://randomuser.me/api/portraits/women/56.jpg" alt="Sara Malik" class="img-fluid rounded-circle">
+                </figure>
+                <h3 class="font-size-20 text-black">Sara Malik</h3>
+                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Customer Service Manager</span>
+                <p class="mb-4">
+                    Leads our customer care department with a personal touch.
+                    Resolves queries, tracks packages, and maintains service quality.
+                    Ensures every client receives quick and clear support.
+                </p>
+            </div>
+
+            <div class="block-team-member-1 text-center rounded h-100">
+                <figure>
+                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Bilal Hussain" class="img-fluid rounded-circle">
+                </figure>
+                <h3 class="font-size-20 text-black">Bilal Hussain</h3>
+                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Logistics Coordinator</span>
+                <p class="mb-4">
+                    Designs delivery routes and monitors shipments in real time.
+                    Works with drivers to minimize delays and reduce costs.
+                    Keeps the supply chain efficient and reliable.
+                </p>
+            </div>
+
+            <div class="block-team-member-1 text-center rounded h-100">
+                <figure>
+                    <img src="https://randomuser.me/api/portraits/women/34.jpg" alt="Nadia Rauf" class="img-fluid rounded-circle">
+                </figure>
+                <h3 class="font-size-20 text-black">Nadia Rauf</h3>
+                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Finance Officer</span>
+                <p class="mb-4">
+                    Manages company finances and prepares monthly reports.
+                    Handles budgets, invoices, and payment processing.
+                    Ensures transparency and compliance with all regulations.
+                </p>
+            </div>
+
+            <div class="block-team-member-1 text-center rounded h-100">
+                <figure>
+                    <img src="https://randomuser.me/api/portraits/men/70.jpg" alt="Usman Qureshi" class="img-fluid rounded-circle">
+                </figure>
+                <h3 class="font-size-20 text-black">Usman Qureshi</h3>
+                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Fleet Supervisor</span>
+                <p class="mb-4">
+                    Oversees vehicle maintenance and driver performance.
+                    Schedules inspections to keep the fleet safe and ready.
+                    Coordinates fuel management and repair work.
+                </p>
+            </div>
+
+            <div class="block-team-member-1 text-center rounded h-100">
+                <figure>
+                    <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Ayesha Siddiqui" class="img-fluid rounded-circle">
+                </figure>
+                <h3 class="font-size-20 text-black">Ayesha Siddiqui</h3>
+                <span class="d-block font-gray-5 letter-spacing-1 text-uppercase font-size-12 mb-3">Dispatch Lead</span>
+                <p class="mb-4">
+                    Directs daily pickups and deliveries for all regions.
+                    Communicates with drivers and clients for smooth service.
+                    Maintains accurate records of outgoing parcels.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section bg-light" id="pricing-section">
+    <div class="container">
+        <div class="row mb-5 justify-content-center text-center">
+            <div class="col-md-7">
+                <div class="block-heading-1" data-aos="fade-up" data-aos-delay="">
+                    <h2>Our Courier Plans</h2>
+                    <p>
+                        Choose the right plan for your shipping needs.
+                        From small personal packages to high-volume business deliveries,
+                        our services ensure fast, secure, and reliable courier solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <!-- Standard Delivery -->
+            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4 d-flex">
+                <div class="pricing pricing-card w-100">
+                    <h3 class="text-center text-black">Standard Delivery</h3>
+                    <div class="price text-center mb-4">
+                        <span><span>$10</span> / parcel</span>
+                    </div>
+                    <ul class="list-unstyled ul-check success mb-5">
+                        <li>Domestic delivery within 3–5 business days</li>
+                        <li>Basic tracking updates via email/SMS</li>
+                        <li class="remove">Same-day or express options</li>
+                        <li class="remove">Bulk shipment discounts</li>
+                        <li class="remove">Dedicated account manager</li>
+                    </ul>
+                    <p class="text-center">
+                        <a href="#" class="btn btn-secondary btn-md">Book Now</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Express Delivery -->
+            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4 d-flex">
+                <div class="pricing pricing-card w-100">
+                    <h3 class="text-center text-black">Express Delivery</h3>
+                    <div class="price text-center mb-4">
+                        <span><span>$25</span> / parcel</span>
+                    </div>
+                    <ul class="list-unstyled ul-check success mb-5">
+                        <li>Nationwide delivery within 24–48 hours</li>
+                        <li>Real-time GPS tracking & notifications</li>
+                        <li>Priority handling and secure packaging</li>
+                        <li>Free pickup from your location</li>
+                        <li class="remove">Dedicated business support</li>
+                    </ul>
+                    <p class="text-center">
+                        <a href="#" class="btn btn-primary btn-md text-white">Book Now</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Business Bulk Plan -->
+            <div class="col-md-6 mb-4 mb-lg-0 col-lg-4 d-flex">
+                <div class="pricing pricing-card w-100">
+                    <h3 class="text-center text-black">Business Bulk Plan</h3>
+                    <div class="price text-center mb-4">
+                        <span><span>$199</span> / month</span>
+                    </div>
+                    <ul class="list-unstyled ul-check success mb-5">
+                        <li>Unlimited monthly shipments (weight limits apply)</li>
+                        <li>Same-day and overnight delivery options</li>
+                        <li>Discounted bulk shipping rates</li>
+                        <li>Dedicated account manager & custom billing</li>
+                        <li>Advanced analytics and shipment reports</li>
+                    </ul>
+                    <p class="text-center">
+                        <a href="#" class="btn btn-secondary btn-md">Subscribe</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Equal Height for Pricing Cards */
+    .pricing-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%; /* Fill the column height */
+        padding: 30px; /* Optional: add padding for spacing */
+        background: #fff; /* Ensure consistent background */
+        border-radius: 8px; /* Smooth edges */
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+
+    /* FAQ Alignment */
+    .faq-align {
+        text-align: left; /* Ensure all text is left aligned */
+    }
+
+    .faq-item {
+        padding-left: 10px; /* Slight indentation for balance */
+        margin-bottom: 2rem;
+    }
+
+    .faq-title {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+    }
+
+        .faq-title .icon-question_answer {
+            font-size: 1.3rem;
+        }
+
+    .faq-text {
+        color: #555;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+
+</style>
+
+<div class="site-section" id="faq-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="block-heading-1 col-12 text-center">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+        </div>
+
+        <div class="row faq-align">
+            <!-- Left Column -->
+            <div class="col-lg-6">
+                <div class="mb-5 faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="faq-title">
+                        <span class="icon-question_answer text-primary mr-2"></span>
+                        How long does standard delivery take?
+                    </h3>
+                    <p class="faq-text">
+                        Our standard domestic service usually takes 3–5 business days.
+                        Delivery times may vary slightly depending on the destination city and public holidays.
+                    </p>
+                </div>
+
+                <div class="mb-5 faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="faq-title">
+                        <span class="icon-question_answer text-primary mr-2"></span>
+                        Do you offer same-day or express shipping?
+                    </h3>
+                    <p class="faq-text">
+                        Yes. We provide Express and Same-Day delivery options in major cities.
+                        Book before noon for guaranteed same-day arrival within city limits.
+                    </p>
+                </div>
+
+                <div class="mb-5 faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="faq-title">
+                        <span class="icon-question_answer text-primary mr-2"></span>
+                        Can I track my shipment online?
+                    </h3>
+                    <p class="faq-text">
+                        Absolutely. Every parcel is assigned a unique tracking ID.
+                        You can monitor real-time status updates on our website or via SMS/email notifications.
+                    </p>
+                </div>
+
+                <div class="mb-5 faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="faq-title">
+                        <span class="icon-question_answer text-primary mr-2"></span>
+                        What if my package is lost or damaged?
+                    </h3>
+                    <p class="faq-text">
+                        In the rare event of loss or damage, we provide insurance coverage
+                        and a quick claims process within 7 working days.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-6">
+                <div class="mb-5 faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="faq-title">
+                        <span class="icon-question_answer text-primary mr-2"></span>
+                        Do you pick up parcels from my location?
+                    </h3>
+                    <p class="faq-text">
+                        Yes, we offer free pickup for express and business accounts.
+                        Schedule a pickup online or through our mobile app, and our courier will collect the package from your doorstep.
+                    </p>
+                </div>
+
+                <div class="mb-5 faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="faq-title">
+                        <span class="icon-question_answer text-primary mr-2"></span>
+                        What are your office hours?
+                    </h3>
+                    <p class="faq-text">
+                        Our main offices operate Monday to Saturday, 9:00 AM to 8:00 PM.
+                        Online booking and tracking are available 24/7 for your convenience.
+                    </p>
+                </div>
+
+                <div class="mb-5 faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="faq-title">
+                        <span class="icon-question_answer text-primary mr-2"></span>
+                        Can I send parcels internationally?
+                    </h3>
+                    <p class="faq-text">
+                        Yes, we ship to over 150 countries with competitive rates.
+                        Delivery times and customs requirements vary depending on the destination.
+                    </p>
+                </div>
+
+                <div class="mb-5 faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="faq-title">
+                        <span class="icon-question_answer text-primary mr-2"></span>
+                        What payment methods do you accept?
+                    </h3>
+                    <p class="faq-text">
+                        We accept cash on delivery (COD), major credit/debit cards,
+                        and secure online payments for quick and hassle-free transactions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="block__73694 site-section border-top" id="why-us-section">
+    <div class="container">
+        <div class="row d-flex no-gutters align-items-stretch">
+
+            <!-- Image Section -->
+            <div class="col-12 col-lg-6 block__73422 order-lg-2" style="background-image: url('https://images.unsplash.com/photo-1739115767884-475ad5a636ff?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');" data-aos="fade-left" data-aos-delay="">
+            </div>
+
+            <!-- Content Section -->
+            <div class="col-lg-5 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade-right" data-aos-delay="">
+                <h2 class="mb-4 text-black">Why Choose Us</h2>
+                <h4 class="text-primary">Reliable, Fast, and Secure Courier Service</h4>
+                <p>We provide timely deliveries across the city and nationwide. Your parcels are handled with care, and our team ensures every shipment reaches its destination safely and on time.</p>
+
+                <ul class="ul-check primary list-unstyled mt-5">
+                    <li>Fast and dependable deliveries</li>
+                    <li>Real-time tracking for all shipments</li>
+                    <li>Secure and insured handling of packages</li>
+                    <li>Cost-effective courier solutions</li>
+                    <li>Trusted by individuals and businesses alike</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="site-section bg-light" id="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-delay="">
+                <div class="block-heading-1">
+                    <span>Get In Touch</span>
+                    <h2>Contact Us</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="100">
+                <form action="#" method="post">
+                    <div class="form-group row">
+                        <div class="col-md-6 mb-4 mb-lg-0">
+                            <input type="text" class="form-control" placeholder="First name">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="First name">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="Email address">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <textarea name="" id="" class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6 mr-auto">
+                            <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Send Message">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white p-3 p-md-5">
+                    <h3 class="text-black mb-4">Contact Info</h3>
+                    <ul class="list-unstyled footer-link">
+                        <li class="d-block mb-3">
+                            <span class="d-block text-black">Address:</span>
+                            <span>
+                                Office #12, 3rd Floor, Business Tower
+                                Shahrah-e-Faisal, Karachi, Sindh 74000
+                                Pakistan
+                            </span>
+                        </li>
+                        <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+92 21 3456 7890</span></li>
+                        <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>info@postmanagement.pk</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

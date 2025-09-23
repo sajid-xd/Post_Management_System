@@ -1,0 +1,14 @@
+﻿@model mycourier.Models.Service
+
+@{
+    ViewData["Title"] = "Confirm Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Are you sure you want to delete "@Model.Name"?</h2>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Yes</button>
+    <a asp-action="Index" class="btn btn-secondary">No</a>
+</form>

@@ -1,0 +1,138 @@
+﻿@model mycourier.Models.User
+
+@{
+    ViewData["Title"] = "Create User";
+
+    var userTypeSession = Context.Session.GetString("user_type");
+    bool isAgent = userTypeSession == "agent";
+    Layout = isAgent ? "/Views/Shared/_LayoutAgent.cshtml" : "/Views/Shared/_LayoutAdmin.cshtml";
+
+    // Filter users for display
+    List<mycourier.Models.User> usersToDisplay;
+    if (ViewBag.Users != null)
+    {
+        usersToDisplay = (ViewBag.Users as List<mycourier.Models.User>)
+            .Where(u => isAgent ? u.UserType == "user" : true)
+            .ToList();
+    }
+    else
+    {
+        usersToDisplay = new List<mycourier.Models.User>();
+    }
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header @(isAgent ? "bg-success" : "bg-primary") text-white">
+            <h4 class="mb-0">Create a New User</h4>
+        </div>
+        <div class="card-body">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+            }
+
+            <form asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label asp-for="FullName" class="form-label">Full Name</label>
+                    <input asp-for="FullName" class="form-control" placeholder="Enter full name" />
+                    <span asp-validation-for="FullName" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Username" class="form-label">Username</label>
+                    <input asp-for="Username" class="form-control" placeholder="Enter username" />
+                    <span asp-validation-for="Username" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Password</label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Enter password" />
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="Enter phone number" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                </div>
+
+                <!-- User Type -->
+                @if (isAgent)
+                {
+                    <div class="mb-3">
+                        <label asp-for="UserType" class="form-label">User Type</label>
+                        <select asp-for="UserType" class="form-control">
+                            <option value="user" selected>User</option>
+                        </select>
+                    </div>
+                }
+                else
+                {
+                    <div class="mb-3">
+                        <label asp-for="UserType" class="form-label">User Type</label>
+                        <select asp-for="UserType" class="form-control">
+                            <option value="admin">Admin</option>
+                            <option value="agent">Agent</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                }
+
+                <div class="text-end">
+                    <button type="submit" class="btn @(isAgent ? "btn-success" : "btn-primary")">
+                        <i class="bi bi-plus-circle"></i> Create User
+                    </button>
+                    @if (!isAgent)
+                    {
+                        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- User List -->
+    <div class="mt-5">
+        <h4 class="mb-3">Existing Users</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Username</th>
+                        <th>Phone Number</th>
+                        <th>User Type</th>
+                        @if (!isAgent)
+                        {
+                            <th style="width: 180px;">Actions</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in usersToDisplay)
+                    {
+                        <tr>
+                            <td>@user.FullName</td>
+                            <td>@user.Username</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.UserType</td>
+                            @if (!isAgent)
+                            {
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+                                        <form asp-action="Delete" asp-route-id="@user.Id" method="post" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                            <input type="hidden" name="id" value="@user.Id" />
+                                            <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

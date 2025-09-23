@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "/Views/Shared/_LayoutAgent.cshtml";
+}
+
+<!-- Import Google Fonts in the layout or page head -->
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:70vh; text-align:center; font-family:'Lato', sans-serif;">
+    <!-- Welcome Text -->
+    <h1 style="font-size:38px; color:#1e3a8a; font-weight:700; margin:0; line-height:1.2;">
+        Welcome, Agent=>
+        <span style="background: linear-gradient(90deg, #0ea5e9, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:800; font-family:'Poppins', sans-serif;">
+            [@Context.Session.GetString("full_name")]...
+        </span>
+    </h1>
+
+    <!-- Decorative random lines -->
+    <div style="width:120px; height:3px; margin:15px 0; display:flex; justify-content:space-between;">
+        <span style="background-color:#0ea5e9; width:12px; height:3px; display:inline-block;"></span>
+        <span style="background-color:#1e3a8a; width:10px; height:3px; display:inline-block;"></span>
+        <span style="background-color:#0ea5e9; width:14px; height:3px; display:inline-block;"></span>
+        <span style="background-color:#1e3a8a; width:8px; height:3px; display:inline-block;"></span>
+        <span style="background-color:#0ea5e9; width:12px; height:3px; display:inline-block;"></span>
+    </div>
+
+    <!-- Optional Subtext -->
+    <p style="font-size:20px; color:#555555; margin-top:10px; font-family:'Roboto', sans-serif;">
+        Empowering Agent with Real-Time Insights and Seamless Workflow Management.
+    </p>
+</div>

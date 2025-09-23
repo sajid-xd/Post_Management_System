@@ -1,0 +1,236 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Track Your Shipment";
+    var delivery = ViewBag.Delivery;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"]</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        /* === Smaller, more compact look === */
+        html {
+            font-size: 16px; /* scales down all rem-based sizes */
+        }
+
+        body {
+            background-color: #1b1d1f;
+            color: #e5e5e5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px; /* reduced from 40px */
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #444;
+            color: #fff;
+            padding: 6px 14px; /* smaller */
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: background-color .2s;
+        }
+
+            .back-btn:hover {
+                background-color: #555;
+            }
+
+        .title {
+            font-weight: 700;
+            font-size: 1.5rem; /* smaller */
+            margin-bottom: .4rem;
+            /* Gradient text */
+            background: linear-gradient(90deg, #ffbb33, #ff9900);
+            -webkit-background-clip: text; /* for Chrome/Safari */
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .subtitle {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem; /* tighter */
+        }
+
+        .track-box {
+            background-color: #2a2d30;
+            padding: 16px; /* smaller */
+            border-radius: 8px;
+            max-width: 300px; /* narrower */
+        }
+
+            .track-box input {
+                background: linear-gradient(90deg, #ffbb33, #ff9900);
+                border: 1px solid #444;
+                color: #e5e5e5;
+                font-size: 0.85rem;
+                padding: 0.4rem 0.6rem;
+            }
+
+                .track-box input:focus {
+                    background-color: #1f2123;
+                    border-color: #666;
+                    color: #000;
+                    box-shadow: none;
+                }
+
+        .track-btn {
+            background-color: #ff9900;
+            border: none;
+            color: #000;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.35rem 1rem; /* smaller */
+        }
+
+        .support {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #bbb;
+        }
+
+            .support a {
+                color: #ff9900;
+                text-decoration: none;
+            }
+
+        /* Shipment Details */
+        .details-card {
+            background: linear-gradient(145deg, #242628, #2a2d30);
+            border-radius: 12px; /* slightly smaller curve */
+            box-shadow: 0 10px 25px rgba(0,0,0,.5);
+            width: 300px; /* narrower */
+            overflow: hidden;
+        }
+
+        .details-header {
+            background: linear-gradient(90deg, #ff9900, #ffbb33);
+            padding: 14px 18px; /* smaller */
+            color: #1b1d1f;
+            font-weight: 700;
+            font-size: 1rem; /* smaller */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .details-body {
+            padding: 16px; /* smaller */
+        }
+
+        .status-badge {
+            border-radius: 12px;
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0; /* smaller */
+            border-bottom: 1px solid #3a3c3e;
+        }
+
+            .detail-row:last-child {
+                border-bottom: none;
+            }
+
+        .label {
+            color: #bbb;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .value {
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="/Home" class="back-btn">Back to Home</a>
+
+    <div class="page-wrapper">
+        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-5">
+
+            <!-- Left Column: Tracking Form -->
+            <div class="left-column">
+                <h1 class="title">Track Your Shipment</h1>
+                <p class="subtitle">Enter your tracking ID to get live updates on your parcel.</p>
+
+                <div class="track-box">
+                    @* Ensure action and parameter names match your controller *@
+                    <form asp-action="TrackDetails" method="get" class="d-flex">
+                        <input type="text"
+                               name="id"
+                               class="form-control me-2"
+                               placeholder="e.g., XZY123456789"
+                               required
+                               aria-label="Tracking ID" />
+                        <button type="submit" class="btn track-btn">Track</button>
+                    </form>
+                    <div class="support mt-2">
+                        Need help? <a href="/Support">Contact Support</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Result -->
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger mt-4 mb-0">
+                    @ViewBag.Error
+                </div>
+            }
+            else if (delivery != null)
+            {
+                <div class="details-card">
+                    <div class="details-header">
+                        Shipment Details
+                        <span class="status-badge
+                                    @(delivery.Status?.ToLower() == "pending" ? "bg-warning text-dark" :
+                                                                                          delivery.Status?.ToLower() == "delivered" ? "bg-success text-white" :
+                                                                                                                                       "bg-info text-dark")">
+                        @delivery.Status
+                    </span>
+                </div>
+
+                    <div class="details-body">
+                        <div class="detail-row"><span class="label">Tracking ID</span><span class="value">@delivery.TrackingId</span></div>
+                        <div class="detail-row"><span class="label">Receiver</span><span class="value">@delivery.ReceiverName</span></div>
+                        <div class="detail-row"><span class="label">Sender Phone</span><span class="value">@delivery.SenderPhone</span></div>
+                        <div class="detail-row"><span class="label">Service</span><span class="value">@delivery.ServiceName</span></div>
+                        <div class="detail-row"><span class="label">From</span><span class="value">@delivery.FromAddress</span></div>
+                        <div class="detail-row"><span class="label">To</span><span class="value">@delivery.ToAddress</span></div>
+                        <div class="detail-row"><span class="label">Weight</span><span class="value">@delivery.WeightName</span></div>
+                        <div class="detail-row"><span class="label">Location</span><span class="value">@delivery.LocationName</span></div>
+                    </div>
+                </div>
+                        }
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

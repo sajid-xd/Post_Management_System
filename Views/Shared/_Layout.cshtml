@@ -1,0 +1,174 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Post Management System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Free-Template.co" />
+    <link rel="shortcut icon" href="~/ftco-32x32.png">
+
+    <link href="~/https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/css/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/css/style.css">
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <div id="overlayer"></div>
+    <div class="loader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <div class="site-wrap" id="home-section">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <a href="~/#" class=""><span class="mr-2  icon-envelope-open-o"></span> <span class="d-none d-md-inline-block">info@postmanagement.pk</span></a>
+                        <span class="mx-md-2 d-inline-block"></span>
+                        <a href="~/#" class=""><span class="mr-2  icon-phone"></span> <span class="d-none d-md-inline-block">+92 21 3456 7890</span></a>
+
+                        <div class="float-right">
+                            <a href="https://x.com/sajidali_26" class=""><span class="mr-2  icon-twitter"></span> <span class="d-none d-md-inline-block">Twitter</span></a>
+                            <span class="mx-md-2 d-inline-block"></span>
+                            <a href="https://www.facebook.com/profile.php?id=100023226421178" class=""><span class="mr-2  icon-facebook"></span> <span class="d-none d-md-inline-block">Facebook</span></a>
+
+                            <!-- Login and Signup Buttons -->
+                            <a asp-action="Login" asp-controller="Home" class="btn btn-primary ml-3">Login</a>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+            <div class="container">
+                <div class="row align-items-center position-relative">
+                    <div class="site-logo">
+                        <a href="~/index.html" class="text-black"><span class="text-primary">POST MANAGEMENT</a>
+                    </div>
+
+                    <div class="col-12">
+                        <nav class="site-navigation text-right ml-auto " role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                                <li><a href="~/#home-section" class="nav-link">Home</a></li>
+                                <li class="has-children">
+                                    <a href="/" class="nav-link">Services</a>
+                                    <ul class="dropdown arrow-top">
+                                        <li><a href="/" class="nav-link">Sea Freight</a></li>
+                                        <li><a href="/" class="nav-link">Air Freight</a></li>
+                                        <li><a href="/" class="nav-link">Package Forwarding</a></li>
+                                        <li><a href="/" class="nav-link">Trucking</a></li>
+                                        <li><a href="/" class="nav-link">Express Delivery</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="~/#why-us-section" class="nav-link">Why Us</a></li>
+                                <li><a href="~/#contact-section" class="nav-link">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="toggle-button d-inline-block d-lg-none"><a href="~/#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+                </div>
+            </div>
+        </header>
+
+        @RenderBody()
+
+        <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-7">
+                <h2 class="footer-heading mb-4">About Us</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+              </div>
+              <div class="col-md-4 ml-auto">
+                <h2 class="footer-heading mb-4">Features</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-4 ml-auto">
+
+            <div class="mb-5">
+              <h2 class="footer-heading mb-4">Subscribe to Newsletter</h2>
+              <div action="#" method="post" class="footer-suscribe-form">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary text-white" type="button" id="button-addon2">Subscribe</button>
+                  </div>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <div class="border-top pt-5">
+              <p class="copyright">
+                <!-- Link back to Free-Template.co can't be removed. Template is licensed under CC BY 3.0. -->
+                                &copy; <script>document.write(new Date().getFullYear());</script> <strong>"Post Management System"</strong> All Rights Reserved.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+
+    </div>
+
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.sticky.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/jquery.fancybox.min.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/main.js"></script>
+
+</body>
+
+</html>

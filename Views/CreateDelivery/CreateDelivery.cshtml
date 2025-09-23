@@ -1,0 +1,151 @@
+﻿@model mycourier.Models.ViewModels.CreateDeliveryViewModel
+
+@{
+    Layout = "/Views/Shared/_LayoutAgent.cshtml";
+}
+
+<div class="container mt-5">
+    <h2>Create New Delivery</h2>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    <!-- Delivery Form -->
+    <form asp-action="Index" method="post">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="FromAddress" class="form-label"></label>
+                <input asp-for="FromAddress" class="form-control" placeholder="From Address" />
+                <span asp-validation-for="FromAddress" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="ToAddress" class="form-label"></label>
+                <input asp-for="ToAddress" class="form-control" placeholder="To Address" />
+                <span asp-validation-for="ToAddress" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="SenderId" class="form-label">Sender</label>
+                <select asp-for="SenderId" class="form-select" id="senderSelect" asp-items="@(new SelectList(ViewBag.Users, "Id", "FullName"))">
+                    <option value="">-- Select Sender --</option>
+                </select>
+                <span asp-validation-for="SenderId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="ReceiverName" class="form-label"></label>
+                <input asp-for="ReceiverName" class="form-control" placeholder="Receiver Name" />
+                <span asp-validation-for="ReceiverName" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label asp-for="ServiceId" class="form-label">Service</label>
+                <select asp-for="ServiceId" class="form-select" id="serviceSelect">
+                    <option value="">-- Select Service --</option>
+                    @foreach (var s in ViewBag.Services)
+                    {
+                        <option value="@s.Id" data-price="@s.Fees">@s.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="ServiceId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label asp-for="WeightId" class="form-label">Weight</label>
+                <select asp-for="WeightId" class="form-select" id="weightSelect">
+                    <option value="">-- Select Weight --</option>
+                    @foreach (var w in ViewBag.Weights)
+                    {
+                        <option value="@w.Id" data-price="@w.Fees">@w.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="WeightId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label asp-for="LocationId" class="form-label">Location</label>
+                <select asp-for="LocationId" class="form-select" id="locationSelect">
+                    <option value="">-- Select Location --</option>
+                    @foreach (var l in ViewBag.Locations)
+                    {
+                        <option value="@l.Id" data-price="@l.Fees">@l.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="LocationId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <div id="totalFee" class="alert alert-info">Total Fee: PKR 0.00</div>
+            </div>
+
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-success">Create Delivery</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- List of Deliveries -->
+    <h3 class="mt-5">Your Deliveries</h3>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Tracking ID</th>
+                <th>Sender</th>
+                <th>Receiver</th>
+                <th>Service</th>
+                <th>Weight</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewBag.Deliveries != null)
+            {
+                foreach (var d in ViewBag.Deliveries)
+                {
+                    <tr>
+                        <td>@d.TrackingId</td>
+                        <td>@d.Sender.FullName (@d.Sender.PhoneNumber)</td>
+                        <td>@d.ReceiverName</td>
+                        <td>@d.Service.Name</td>
+                        <td>@d.Weight.Name</td>
+                        <td>@d.Location.Name</td>
+                        <td>@d.Status</td>
+                        <td>@d.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="8" class="text-center">No deliveries found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const serviceSelect = document.getElementById("serviceSelect");
+            const weightSelect = document.getElementById("weightSelect");
+            const locationSelect = document.getElementById("locationSelect");
+            const totalFeeDisplay = document.getElementById("totalFee");
+
+            function updateTotalFee() {
+                let total = 0;
+                const servicePrice = serviceSelect.selectedOptions[0]?.dataset.price || 0;
+                const weightPrice = weightSelect.selectedOptions[0]?.dataset.price || 0;
+                const locationPrice = locationSelect.selectedOptions[0]?.dataset.price || 0;
+                total = parseFloat(servicePrice) + parseFloat(weightPrice) + parseFloat(locationPrice);
+                totalFeeDisplay.innerText = "Total Fee: PKR " + total.toFixed(2);
+            }
+
+            serviceSelect.addEventListener("change", updateTotalFee);
+            weightSelect.addEventListener("change", updateTotalFee);
+            locationSelect.addEventListener("change", updateTotalFee);
+        });
+    </script>
