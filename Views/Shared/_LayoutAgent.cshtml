@@ -56,7 +56,7 @@
                 <!--- Sidemenu -->
                 <ul class="side-nav">
 
-                    <li class="side-nav-title side-nav-item">ADMIN</li>
+                    <li class="side-nav-title side-nav-item">Agent</li>
 
                     <li class="side-nav-item">
                         <a asp-controller="CreateUsers" asp-action="Create" class="side-nav-link">
@@ -112,7 +112,9 @@
     <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
        aria-expanded="false">
                                 <span class="account-user-avatar">
-                                    <i class="fas fa-user-circle fa-2x"></i>
+                                    <img src="https://media.licdn.com/dms/image/v2/D5603AQGReEPVxdndZQ/profile-displayphoto-shrink_400_400/B56ZRCABpEGoAg-/0/1736274092308?e=1761782400&v=beta&t=hHL25pAf4qlvDOxgpbmsJrpd1PqPirVrYZ9Nlk0tRhQ"
+                                         alt="User Avatar"
+                                         style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
                                 </span>
         <span>
             <span class="account-user-name">@Context.Session.GetString("full_name")</span>
