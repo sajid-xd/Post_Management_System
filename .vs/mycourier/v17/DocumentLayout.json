@@ -1,12 +1,55 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{25DE68D1-2B51-436B-8CCD-2AC0D6C3D9C3}|mycourier.csproj|c:\\users\\sajid ali\\source\\repos\\post_management_system\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{25DE68D1-2B51-436B-8CCD-2AC0D6C3D9C3}|mycourier.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25DE68D1-2B51-436B-8CCD-2AC0D6C3D9C3}|mycourier.csproj|c:\\users\\sajid ali\\source\\repos\\post_management_system\\views\\shared\\_layoutagent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{25DE68D1-2B51-436B-8CCD-2AC0D6C3D9C3}|mycourier.csproj|solutionrelative:views\\shared\\_layoutagent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAoBAAAAAAAAAAAAABQBAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-24T10:34:14.083Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_LayoutAgent.cshtml",
+              "DocumentMoniker": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\Views\\Shared\\_LayoutAgent.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutAgent.cshtml",
+              "ToolTip": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\Views\\Shared\\_LayoutAgent.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LayoutAgent.cshtml",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAHIAAADsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-24T11:12:49.308Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
