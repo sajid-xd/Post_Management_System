@@ -7756,11 +7756,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sajid Ali\\source\\repos\\Post-Office-Management-System\\mycourier.csproj",
+      "projectUniqueName": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\mycourier.csproj",
       "projectName": "mycourier",
-      "projectPath": "C:\\Users\\Sajid Ali\\source\\repos\\Post-Office-Management-System\\mycourier.csproj",
+      "projectPath": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\mycourier.csproj",
       "packagesPath": "C:\\Users\\Sajid Ali\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sajid Ali\\source\\repos\\Post-Office-Management-System\\obj\\",
+      "outputPath": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
