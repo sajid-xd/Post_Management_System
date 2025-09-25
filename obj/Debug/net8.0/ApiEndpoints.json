@@ -1,5 +1,84 @@
 [
   {
+    "ContainingType": "mycourier.Controllers.ApiController",
+    "Method": "GetAll",
+    "RelativePath": "api/Api",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "mycourier.Controllers.ApiController",
+    "Method": "Create",
+    "RelativePath": "api/Api",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "s",
+        "Type": "mycourier.Controllers.ShipmentInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "mycourier.Controllers.ApiController",
+    "Method": "GetById",
+    "RelativePath": "api/Api/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "mycourier.Controllers.ApiController",
+    "Method": "Update",
+    "RelativePath": "api/Api/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "s",
+        "Type": "mycourier.Controllers.ShipmentInput",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "mycourier.Controllers.ApiController",
+    "Method": "Delete",
+    "RelativePath": "api/Api/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "mycourier.Controllers.DeliveriesController",
     "Method": "GetDeliveries",
     "RelativePath": "api/Deliveries",

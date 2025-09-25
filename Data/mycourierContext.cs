@@ -9,12 +9,18 @@ namespace mycourier.Data
 {
     public class mycourierContext : DbContext
     {
-        public mycourierContext (DbContextOptions<mycourierContext> options)
+        public mycourierContext(DbContextOptions<mycourierContext> options)
             : base(options)
         {
         }
 
-        public DbSet<mycourier.Models.Location> Location { get; set; } = default!;
-        public DbSet<mycourier.Models.User> User { get; set; } = default!;
+        // Existing tables
+        public DbSet<Location> Location { get; set; } = default!;
+        public DbSet<User> User { get; set; } = default!;
+
+        // ✅ Added tables
+        public DbSet<Service> Service { get; set; } = default!;
+        public DbSet<Weight> Weight { get; set; } = default!;
+        public DbSet<Delivery> Delivery { get; set; } = default!;
     }
 }
