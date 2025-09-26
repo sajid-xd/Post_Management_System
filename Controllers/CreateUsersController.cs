@@ -139,14 +139,28 @@ namespace mycourier.Controllers
             if (HttpContext.Session.GetString("user_type") != "admin")
                 return RedirectToAction("Index", "Home");
 
+            // Find the user
             var user = _context.Users.Find(id);
-            if (user != null)
+            if (user == null)
+                return RedirectToAction(nameof(Create));
+
+            // Check for active deliveries (e.g., Status = "Pending" or "InProgress")
+            bool hasActiveDeliveries = _context.Deliveries
+                .Any(d => d.SenderId == id && (d.Status == "Pending" || d.Status == "InProgress"));
+
+            if (hasActiveDeliveries)
             {
-                _context.Users.Remove(user);
-                _context.SaveChanges();
-                TempData["SuccessMessage"] = "User deleted successfully!";
+                TempData["ErrorMessage"] =
+                    "Cannot delete this user because they have active deliveries. Please cancel those deliveries first.";
+                return RedirectToAction(nameof(Create)); // back to the user list page
             }
+
+            // ✅ No active deliveries: safe to delete
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+            TempData["SuccessMessage"] = "User deleted successfully!";
             return RedirectToAction(nameof(Create));
         }
+
     }
 }

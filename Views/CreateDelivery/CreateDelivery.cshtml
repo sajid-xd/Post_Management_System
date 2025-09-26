@@ -11,6 +11,10 @@
     {
         <div class="alert alert-success">@TempData["SuccessMessage"]</div>
     }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
 
     <!-- Delivery Form -->
     <form asp-action="Index" method="post">
@@ -99,6 +103,7 @@
                 <th>Location</th>
                 <th>Status</th>
                 <th>Created At</th>
+                <th>Actions</th> <!-- NEW -->
             </tr>
         </thead>
         <tbody>
@@ -115,37 +120,43 @@
                         <td>@d.Location.Name</td>
                         <td>@d.Status</td>
                         <td>@d.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                        <td>
+                            <form asp-action="Delete" method="post" asp-route-id="@d.Id"
+                                  onsubmit="return confirm('Are you sure you want to delete this delivery?');">
+                                <button type="submit" class="btn btn-danger btn-sm">Cancel Delivery</button>
+                            </form>
+                        </td>
                     </tr>
                 }
             }
             else
             {
                 <tr>
-                    <td colspan="8" class="text-center">No deliveries found.</td>
+                    <td colspan="9" class="text-center">No deliveries found.</td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const serviceSelect = document.getElementById("serviceSelect");
-            const weightSelect = document.getElementById("weightSelect");
-            const locationSelect = document.getElementById("locationSelect");
-            const totalFeeDisplay = document.getElementById("totalFee");
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const serviceSelect = document.getElementById("serviceSelect");
+        const weightSelect = document.getElementById("weightSelect");
+        const locationSelect = document.getElementById("locationSelect");
+        const totalFeeDisplay = document.getElementById("totalFee");
 
-            function updateTotalFee() {
-                let total = 0;
-                const servicePrice = serviceSelect.selectedOptions[0]?.dataset.price || 0;
-                const weightPrice = weightSelect.selectedOptions[0]?.dataset.price || 0;
-                const locationPrice = locationSelect.selectedOptions[0]?.dataset.price || 0;
-                total = parseFloat(servicePrice) + parseFloat(weightPrice) + parseFloat(locationPrice);
-                totalFeeDisplay.innerText = "Total Fee: PKR " + total.toFixed(2);
-            }
+        function updateTotalFee() {
+            let total = 0;
+            const servicePrice = serviceSelect.selectedOptions[0]?.dataset.price || 0;
+            const weightPrice = weightSelect.selectedOptions[0]?.dataset.price || 0;
+            const locationPrice = locationSelect.selectedOptions[0]?.dataset.price || 0;
+            total = parseFloat(servicePrice) + parseFloat(weightPrice) + parseFloat(locationPrice);
+            totalFeeDisplay.innerText = "Total Fee: PKR " + total.toFixed(2);
+        }
 
-            serviceSelect.addEventListener("change", updateTotalFee);
-            weightSelect.addEventListener("change", updateTotalFee);
-            locationSelect.addEventListener("change", updateTotalFee);
-        });
-    </script>
+        serviceSelect.addEventListener("change", updateTotalFee);
+        weightSelect.addEventListener("change", updateTotalFee);
+        locationSelect.addEventListener("change", updateTotalFee);
+    });
+</script>

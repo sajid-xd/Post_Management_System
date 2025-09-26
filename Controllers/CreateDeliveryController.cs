@@ -92,5 +92,30 @@ namespace MyCourier.Controllers
             TempData["SuccessMessage"] = $"Delivery created successfully! Tracking ID: {trackingId}";
             return RedirectToAction("Index", "CreateDelivery");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            var agentId = HttpContext.Session.GetInt32("id");
+            if (agentId == null) return RedirectToAction("Logout", "Account");
+
+            // Find the delivery for the current agent
+            var delivery = _context.Deliveries
+                .FirstOrDefault(d => d.Id == id && d.AgentId == agentId);
+
+            if (delivery == null)
+            {
+                TempData["ErrorMessage"] = "Delivery not found or you don't have permission.";
+                return RedirectToAction("Index");
+            }
+
+            _context.Deliveries.Remove(delivery);
+            _context.SaveChanges();
+
+            TempData["SuccessMessage"] = $"Delivery with Tracking ID {delivery.TrackingId} has been deleted.";
+            return RedirectToAction("Index");
+        }
+
     }
 }

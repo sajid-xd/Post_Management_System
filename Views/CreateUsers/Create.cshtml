@@ -21,16 +21,26 @@
     }
 }
 
+
 <div class="container mt-5">
     <div class="card shadow-sm">
         <div class="card-header @(isAgent ? "bg-success" : "bg-primary") text-white">
             <h4 class="mb-0">Create a New User</h4>
         </div>
         <div class="card-body">
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
             @if (TempData["SuccessMessage"] != null)
             {
-                <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+                <div class="alert alert-success">
+                    @TempData["SuccessMessage"]
+                </div>
             }
+
 
             <form asp-action="Create" method="post">
                 <div class="mb-3">

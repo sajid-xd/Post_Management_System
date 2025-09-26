@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{25DE68D1-2B51-436B-8CCD-2AC0D6C3D9C3}|mycourier.csproj|c:\\users\\sajid ali\\source\\repos\\post_management_system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{25DE68D1-2B51-436B-8CCD-2AC0D6C3D9C3}|mycourier.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{25DE68D1-2B51-436B-8CCD-2AC0D6C3D9C3}|mycourier.csproj|c:\\users\\sajid ali\\source\\repos\\post_management_system\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{25DE68D1-2B51-436B-8CCD-2AC0D6C3D9C3}|mycourier.csproj|solutionrelative:controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{25DE68D1-2B51-436B-8CCD-2AC0D6C3D9C3}|mycourier.csproj|c:\\users\\sajid ali\\source\\repos\\post_management_system\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{25DE68D1-2B51-436B-8CCD-2AC0D6C3D9C3}|mycourier.csproj|solutionrelative:views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAADwvxYAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T18:40:26.821Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ApiController.cs",
-              "DocumentMoniker": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\Controllers\\ApiController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ApiController.cs",
-              "ToolTip": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\Controllers\\ApiController.cs",
-              "RelativeToolTip": "Controllers\\ApiController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T08:36:43.608Z",
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutAdmin.cshtml",
+              "ToolTip": "C:\\Users\\Sajid Ali\\source\\repos\\Post_Management_System\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LayoutAdmin.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-26T14:32:40.574Z",
               "EditorCaption": ""
             }
           ]
