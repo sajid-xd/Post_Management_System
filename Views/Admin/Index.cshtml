@@ -3,15 +3,129 @@
     Layout = "/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<!-- Import Google Fonts in the layout or page head -->
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
-<div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:70vh; text-align:center; font-family:'Lato', sans-serif;">
-    <!-- Welcome Text -->
-    <h1 style="font-size:38px; color:#1e3a8a; font-weight:700; margin:0; line-height:1.2;">
-        Welcome, Administrator=>
-        <span style="background: linear-gradient(90deg, #0ea5e9, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:800; font-family:'Poppins', sans-serif;">
-            [@Context.Session.GetString("full_name")]...
-        </span>
+<div class="welcome-container">
+    <h1 class="welcome-text">
+        <i class="bi bi-truck me-2 courier-icon"></i>
+        Welcome, Administrator =>
+        <span class="user-name">[@Context.Session.GetString("full_name")]...</span>
     </h1>
+    <p class="welcome-subtext">Manage your posts, locations, weights, and deliveries from here.</p>
 </div>
+
+<style>
+    body {
+        background-color: #313a46; /* dark full-page background */
+    }
+
+    .welcome-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 70vh;
+        text-align: center;
+        font-family: 'Lato', sans-serif;
+        padding: 2rem;
+        position: relative;
+    }
+
+    .welcome-text {
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0;
+        display: inline-flex;
+        align-items: center;
+        opacity: 0;
+        transform: translateX(-150px);
+        transition: transform 0.8s ease, opacity 0.8s ease;
+    }
+
+        .welcome-text.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+    .courier-icon {
+        font-size: 42px;
+        color: #ff8b00;
+        transition: transform 0.3s ease;
+        cursor: default;
+    }
+
+    .user-name {
+        background: linear-gradient(90deg, #ff8b00, #ffad33);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        font-family: 'Poppins', sans-serif;
+        margin: 0 10px;
+        display: inline-block;
+        opacity: 0;
+        transform: translateX(150px);
+        transition: transform 1s ease, opacity 1s ease;
+    }
+
+        .user-name.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+    .welcome-subtext {
+        font-size: 18px;
+        color: #e0e0e0;
+        margin-top: 1rem;
+        max-width: 650px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: transform 0.8s ease 0.5s, opacity 0.8s ease 0.5s;
+    }
+
+        .welcome-subtext.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const headline = document.querySelector(".welcome-text");
+        const username = document.querySelector(".user-name");
+        const subtext = document.querySelector(".welcome-subtext");
+        const icons = document.querySelectorAll(".courier-icon");
+
+        // Function to trigger animations
+        function animateWelcome() {
+            // Reset elements
+            headline.classList.remove("show");
+            username.classList.remove("show");
+            subtext.classList.remove("show");
+
+            // Trigger reflow to allow re-adding classes
+            void headline.offsetWidth;
+
+            // Add show classes with delays
+            setTimeout(() => { headline.classList.add("show"); }, 100);
+            setTimeout(() => { username.classList.add("show"); }, 600);
+            setTimeout(() => { subtext.classList.add("show"); }, 1200);
+        }
+
+        // Initial animation
+        animateWelcome();
+
+        // Repeat animations every 3 seconds
+        setInterval(animateWelcome, 6000);
+
+        // JS-driven bounce icons
+        let bounceUp = true;
+        setInterval(() => {
+            icons.forEach(icon => {
+                icon.style.transform = bounceUp ? 'translateY(-8px)' : 'translateY(0)';
+            });
+            bounceUp = !bounceUp;
+        }, 1000);
+    });
+</script>

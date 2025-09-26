@@ -96,7 +96,59 @@
         <!-- ============================================================== -->
         <!-- Start Page Content here -->
         <!-- ============================================================== -->
+        <style>
+            /* Navbar background */
+            .navbar-custom {
+                background-color: #313a46; /* dark background */
+                border-bottom: 1px solid #222b36; /* subtle separation */
+            }
 
+                /* Navbar links and text */
+                .navbar-custom .nav-link,
+                .navbar-custom .account-user-name,
+                .navbar-custom .account-position,
+                .navbar-custom .topbar-menu .dropdown-item {
+                    color: #ffffff; /* default text color */
+                    background: none; /* remove any boxes */
+                    box-shadow: none;
+                    border: none;
+                    transition: none; /* remove hover animation */
+                }
+
+                /* Active / dropdown items */
+                .navbar-custom .topbar-menu li.show > a,
+                .navbar-custom .topbar-menu li.active > a {
+                    color: #ff8b00; /* theme accent for active item */
+                }
+
+                /* Dropdown menu background */
+                .navbar-custom .dropdown-menu {
+                    background-color: #313a46; /* match navbar */
+                    color: #ffffff;
+                    box-shadow: none; /* remove dropdown shadow if any */
+                }
+
+                    /* Dropdown items */
+                    .navbar-custom .dropdown-menu .dropdown-item {
+                        color: #ffffff;
+                        background: none;
+                        box-shadow: none;
+                    }
+
+                /* Icons in navbar */
+                .navbar-custom .noti-icon,
+                .navbar-custom .mdi,
+                .navbar-custom .dripicons-search {
+                    color: #ff8b00; /* theme accent color */
+                }
+
+                /* Navbar li items */
+                .navbar-custom .topbar-menu li {
+                    color: #ffffff; /* plain text */
+                    background: none; /* remove boxes */
+                }
+
+        </style>
         <div class="content-page">
             <div class="content">
                 <!-- Topbar Start -->
@@ -155,15 +207,16 @@
                 <!-- end Topbar -->
         @RenderBody()
         <!-- Footer Start -->
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6">
-                        <script>document.write(new Date().getFullYear())</script> © PostManagement - System
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6" style="color: white;">
+                                <script>document.write(new Date().getFullYear())</script> © PostManagement - System
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </footer>
+                </footer>
+
         <!-- end Footer -->
 
     </div>
