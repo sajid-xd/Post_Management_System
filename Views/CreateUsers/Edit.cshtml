@@ -1,52 +1,222 @@
 ﻿@model mycourier.Models.User
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit User";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Edit</h1>
+<div class="container py-5">
+    <div id="editCard" class="card shadow-lg border-0 opacity-0 translate-middle-y">
+        <div class="card-header text-white d-flex align-items-center"
+             style="background:linear-gradient(135deg,#ff8b00 0%,#ffad33 100%);">
+            <i class="bi bi-truck fs-3 me-2"></i>
+            <h3 class="mb-0 flex-grow-1">Edit Courier User</h3>
+        </div>
 
-<h4>User</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="FullName" class="control-label"></label>
-                <input asp-for="FullName" class="form-control" />
-                <span asp-validation-for="FullName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
-                <span asp-validation-for="Username" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserType" class="control-label"></label>
-                <input asp-for="UserType" class="form-control" />
-                <span asp-validation-for="UserType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        <div class="card-body bg-light">
+            <form asp-action="Edit" class="needs-validation" novalidate>
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-4 fade"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <!-- Full Name -->
+                <div class="mb-3 input-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-person-fill text-secondary"></i></span>
+                    <input asp-for="FullName" class="form-control cool-input" placeholder="Full name" />
+                    <span asp-validation-for="FullName" class="text-danger small"></span>
+                </div>
+
+                <!-- Username -->
+                <div class="mb-3 input-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-person-badge text-secondary"></i></span>
+                    <input asp-for="Username" class="form-control cool-input" placeholder="Username" />
+                    <span asp-validation-for="Username" class="text-danger small"></span>
+                </div>
+
+                <!-- Password with improved show/hide toggle -->
+                <div class="mb-3 input-group password-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-lock-fill text-secondary"></i></span>
+                    <input asp-for="Password" type="password" id="passwordField"
+                           class="form-control cool-input" placeholder="Password" />
+                    <button type="button" class="btn view-pass-btn no-hover" tabindex="-1">
+                        <i class="bi bi-eye" id="toggleIcon"></i>
+                    </button>
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+
+                <!-- Phone -->
+                <div class="mb-3 input-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-telephone-fill text-secondary"></i></span>
+                    <input asp-for="PhoneNumber" class="form-control cool-input" placeholder="Phone number" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                </div>
+
+                <!-- User Type (custom dropdown with icons) -->
+                <div class="mb-4">
+                    <label class="form-label fw-semibold text-dark">User Type</label>
+                    <input type="hidden" asp-for="UserType" id="UserTypeHidden" />
+
+                    <div class="dropdown w-100">
+                        <button id="userTypeBtn"
+                                class="btn btn-outline-secondary w-100 d-flex justify-content-between align-items-center dropdown-toggle cool-input no-hover"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="d-flex align-items-center">
+                                <i class="bi bi-people-fill me-2 text-secondary"></i>
+                                <span class="selected-text">
+                                    @(Model.UserType ?? "-- Select Type --")
+                                </span>
+                            </span>
+                        </button>
+
+                        <ul class="dropdown-menu w-100 shadow">
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center user-option" data-value="admin" href="#">
+                                    <i class="bi bi-shield-lock me-2 text-danger"></i>Admin
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center user-option" data-value="agent" href="#">
+                                    <i class="bi bi-truck me-2 text-warning"></i>Agent
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center user-option" data-value="user" href="#">
+                                    <i class="bi bi-person me-2 text-primary"></i>User
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <span asp-validation-for="UserType" class="text-danger small"></span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Create" class="btn btn-outline-secondary rounded-pill px-4 py-2">
+                        <i class="bi bi-arrow-left"></i> Back
+                    </a>
+                    <button type="submit"
+                            class="btn text-white rounded-pill px-5 py-2 shadow-sm btn-hover"
+                            style="background-color:#ff8b00;">
+                        <i class="bi bi-save"></i> Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // fade/slide card
+        const card = document.getElementById("editCard");
+        setTimeout(() => card.classList.remove("opacity-0", "translate-middle-y"), 50);
 
+        // custom dropdown
+        document.querySelectorAll(".user-option").forEach(function (opt) {
+            opt.addEventListener("click", function (e) {
+                e.preventDefault();
+                const val = this.dataset.value;
+                const txt = this.textContent.trim();
+                document.getElementById("UserTypeHidden").value = val;
+                document.querySelector("#userTypeBtn .selected-text").textContent = txt;
+            });
+        });
+
+        // password show/hide
+        const pwdField = document.getElementById("passwordField");
+        const toggleBtn = document.querySelector(".view-pass-btn");
+        const toggleIcon = document.getElementById("toggleIcon");
+        toggleBtn.addEventListener("click", function () {
+            const isHidden = pwdField.type === "password";
+            pwdField.type = isHidden ? "text" : "password";
+            toggleIcon.classList.toggle("bi-eye");
+            toggleIcon.classList.toggle("bi-eye-slash");
+            toggleIcon.classList.toggle("text-courier");
+        });
+    });
+</script>
+
+<style>
+    /* fade & slide */
+    .opacity-0 {
+        opacity: 0;
+    }
+
+    .translate-middle-y {
+        transform: translateY(30px);
+    }
+
+    #editCard {
+        transition: opacity .6s ease, transform .6s ease;
+    }
+
+    /* input & button styling */
+    .cool-input {
+        border: none;
+        box-shadow: 0 0 0 1px #ccc;
+        transition: box-shadow .3s ease, transform .2s ease;
+    }
+
+        .cool-input:focus {
+            box-shadow: 0 0 8px #ff8b00;
+            transform: scale(1.02);
+        }
+
+    /* dropdown tweaks (remove hover on toggle button itself) */
+    .dropdown-toggle::after {
+        margin-left: auto;
+    }
+
+    .dropdown-item i {
+        font-size: 1.2rem;
+    }
+
+    /* Remove hover from dropdown toggle and password toggle */
+    .no-hover:hover,
+    .no-hover:focus,
+    .no-hover:active {
+        background-color: inherit !important;
+        color: inherit !important;
+        box-shadow: none !important;
+    }
+
+    /* button hover (for Save only) */
+    .btn-hover {
+        transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,.2);
+        }
+
+    /* Password toggle button */
+    .password-group .form-control {
+        border-right: none;
+    }
+
+    .view-pass-btn {
+        background-color: #fff;
+        border-left: none;
+        border: 1px solid #ccc;
+        border-radius: 0 10px 10px 0;
+        width: 48px;
+        transition: background-color .2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .view-pass-btn:focus {
+            outline: none;
+            box-shadow: 0 0 5px #ff8b00;
+        }
+
+        .view-pass-btn i {
+            font-size: 1.2rem;
+            color: #6c757d;
+            transition: color .2s ease;
+        }
+
+    .text-courier {
+        color: #ff8b00 !important;
+    }
+</style>
